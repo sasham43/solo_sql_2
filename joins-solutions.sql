@@ -20,5 +20,11 @@ FROM customers
 JOIN addresses ON customers.id = addresses.customer_id
 JOIN orders ON orders.address_id = addresses.id;
 -- How many customers do we have?
+SELECT * FROM customers;
 -- How many products do we carry?
+SELECT * FROM products;
 -- What is the total available on-hand quantity of diet pepsi?
+SELECT products.description, warehouse_product.on_hand
+FROM products
+JOIN warehouse_product ON products.id = warehouse_product.product_id
+WHERE products.description = 'diet pepsi';
